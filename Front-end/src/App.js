@@ -1,13 +1,28 @@
 import React from 'react';
 import { useState } from 'react';
 import Header from './components/Header/Header';
+import { useTranslation } from 'react-i18next';
+import './i18n';
 
 export default function App() {
     const [page, setPage] = useState('home');
+
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (language) => {
+      i18n.changeLanguage(language);
+    };
+
+    const changePage = (newPage) => {
+        if (newPage === 'home' || newPage === 'destination' || newPage === 'crew' || newPage === 'technology') {
+            setPage(newPage);
+        }
+    } 
+
     return (
         <div className="App">
-            <Header page={page} />
-            <h1>App</h1>
+            <Header page={page} changePage={changePage} changeLanguage={changeLanguage} />
+            
         </div>
     );
 }

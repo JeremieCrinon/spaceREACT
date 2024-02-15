@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="Private--html">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Space</title>
+
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
+
+        <script src="../js/en/edit_tech.js" defer></script>
+    </head>
+    <body class="Private--body">
+        <header class="Private--header">
+
+            <nav class="Private--header--nav">
+                <ul>
+                    <li><a href="../../en/index.html">PUBLIC PART</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li id="Private--header--li--edit"  class="Private--header--li--current"><a href="#">EDIT CONTENT</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="planet.html">EDIT PLANETS</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="crew.html">EDIT CREWS</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="tech.html">EDIT TECHES</a></li>
+                    <li><a href="profile.html">PROFILE</a></li>
+                </ul>
+            </nav>
+        
+            <script>
+                const editParrent = document.querySelector("#Private--header--li--edit");
+                const edit = document.querySelector("#Private--header--li--edit a");
+                const editUnder = document.querySelectorAll(".Private--header--edit--under");
+        
+                edit.addEventListener("click", function() {
+                    editParrent.classList.toggle("Private--header--li--active");
+                    editUnder.forEach(function(element) {
+                        element.classList.toggle("d-none");
+                    });
+                });
+            </script>
+        
+        </header>
+
+        <main class="Private--main">
+        
+
+            <h1 class="Edit--title">Edit the website</h1>
+
+            <p class="Edit--description">
+                Welcome to the edit page. In this page, you can edit part of the website!
+            </p>
+
+            <form action="#" method="POST" class="Edit--planet--form" id="edit_planet_form" enctype="multipart/form-data">
+                <!-- On affiche l'image actuelle -->
+                <img alt="Image of the tech" class="Edit--planet--form--image" id="planet_img">
+
+                <!-- Formulaire -->
+
+                <!-- Nom en français -->
+                <label class="Edit--planet--form--label" for="fr_name">Name in french</label>
+                <input type="text" name="fr_name" id="fr_name" class="Edit--planet--form--input Edit--planet--form--input--fr_name">
+
+                <!-- Nom en anglais -->
+                <label class="Edit--planet--form--label" for="en_name">Name in english</label>
+                <input type="text" name="en_name" id="en_name" class="Edit--planet--form--input Edit--planet--form--input--en_name">
+
+                <!-- Description en français -->
+                <label class="Edit--planet--form--label" for="en_name">Description in french</label>
+                <input type="text" name="fr_description" id="fr_description" class="Edit--planet--form--input Edit--planet--form--input--fr_description">
+
+                <!-- Description en anglais -->
+                <label class="Edit--planet--form--label" for="en_name">Description in english</label>
+                <input type="text" name="en_description" id="en_description" class="Edit--planet--form--input Edit--planet--form--input--en_description">
+
+                <!-- Image -->
+                <label class="Edit--planet--form--label" for="image">Change the image</label>
+                <input type="file" name="image" id="image" class="Edit--planet--form--input Edit--planet--form--input--image" >
+
+                <!-- Bouton de validation -->
+                <button type="submit" class="Edit--planet--form--button">Edit the planet</button>
+            </form>
+    
+            
+        </main>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="Private--html">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Space</title>
+
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
+
+        <script src="../js/en/tech.js" defer></script>
+    </head>
+    <body class="Private--body">
+        <header class="Private--header">
+
+            <nav class="Private--header--nav">
+                <ul>
+                    <li><a href="../../en/index.html">PUBLIC PART</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li id="Private--header--li--edit"  class="Private--header--li--current"><a href="#">EDIT CONTENT</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="planet.html">EDIT PLANETS</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="crew.html">EDIT CREWS</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="tech.html">EDIT TECHES</a></li>
+                    <li><a href="profile.html">PROFILE</a></li>
+                </ul>
+            </nav>
+        
+            <script>
+                const editParrent = document.querySelector("#Private--header--li--edit");
+                const edit = document.querySelector("#Private--header--li--edit a");
+                const editUnder = document.querySelectorAll(".Private--header--edit--under");
+        
+                edit.addEventListener("click", function() {
+                    editParrent.classList.toggle("Private--header--li--active");
+                    editUnder.forEach(function(element) {
+                        element.classList.toggle("d-none");
+                    });
+                });
+            </script>
+        
+        </header>
+
+        <main class="Private--main">
+        
+
+            <h2 class="Edit--planets--title">Tech</h2>
+    
+            <ul id="planet_container" class="Edit--planets--container">
+                <li class="Edit--planets--container--element">
+                    <p class="Edit--planets--container--element--element Edit--planets--container--element--id">id</p>
+                    <p class="Edit--planets--container--element--element Edit--planets--container--element--fr_name">fr_name</p>
+                    <p class="Edit--planets--container--element--element Edit--planets--container--element--en_name">en_name</p>
+                    <p class="Edit--planets--container--element--element Edit--planets--container--element--fr_description">fr_description</p>
+                    <p class="Edit--planets--container--element--element Edit--planets--container--element--en_description">en_description</p>
+                    <a href="#" class="Edit--planets--container--element--element Edit--planets--container--element--show">Show</a>
+                    <a href="#" class="Edit--planets--container--element--element Edit--planets--container--element--edit">Edit</a>
+                    <form action="#" method="POST" onsubmit="return false;" class="Edit--planets--container--element--element Edit--planets--container--element--delete">
+                        <button type="submit" class="Edit--planets--container--element--element Edit--planets--container--element--delete--button">Del</button>
+                    </form>
+                </li>
+            </ul>
+    
+            <!-- Lien pour créér une planette -->
+            <a href="create_tech.html" class="Edit--planets--link">
+                Create a tech
+            </a>
+    
+            <div id="create_message" class="Create--message">
+                
+            </div>
+            
+        </main>
+    </body>
+</html>

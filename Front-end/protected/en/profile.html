@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="Private--html">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Space</title>
+
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
+
+        <script src="../js/en/profile.js" defer></script>
+    </head>
+    <body class="Private--body">
+        <header class="Private--header">
+
+            <nav class="Private--header--nav">
+                <ul>
+                    <li><a href="../../en/index.html">PUBLIC PART</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li id="Private--header--li--edit"><a href="#">EDIT CONTENT</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="planet.html">EDIT PLANETS</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="#">EDIT CREWS</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="#">EDIT TECHES</a></li>
+                    <li class="Private--header--li--current"><a href="#">PROFILE</a></li>
+                    
+                    
+                </ul>
+            </nav>
+        
+            <script>
+                const editParrent = document.querySelector("#Private--header--li--edit");
+                const edit = document.querySelector("#Private--header--li--edit a");
+                const editUnder = document.querySelectorAll(".Private--header--edit--under");
+        
+                edit.addEventListener("click", function() {
+                    editParrent.classList.toggle("Private--header--li--active");
+                    editUnder.forEach(function(element) {
+                        element.classList.toggle("d-none");
+                    });
+                });
+            </script>
+        
+        </header>
+
+        <main class="Private--main">
+        
+
+            <h1 class="Dashboard--title">Edit your profile</h1>
+    
+            <p class="Dashboard--description">
+                Here, you can edit your profile information and change your password.
+            </p>
+
+            <p id="Edit_profile_message" class="Edit_porfile--message"></p>
+            <p id="Edit_profile_error" class="Edit_porfile--error"></p>
+    
+            <div class="Edit_profile--logout">
+                <button id="logout" class="Edit_profile--logout--button" >Logout</button>
+            </div>
+    
+            <div class="Edit_profile--container">
+                
+                <form method="post" class="Profile--profile_update">
+                    
+                    <input id="Edit_profile_name" class="Profile--profile_update--input" name="name" type="text" required autofocus autocomplete="name" />
+                        
+                    <input id="Edit_profile_email" class="Profile--profile_update--input" name="email" type="email" required autocomplete="username" />
+                    
+                    <button id="Edit_profile_confirm" class="Profile--profile_update--confirm">Save</button>
+                
+                </form>                  
+                <form method="post" class="Profile--password_update">
+                    <input id="Edit_password_password" class="Profile--password_update--current_password Profile--password_update--input" name="current_password" type="password" autocomplete="current-password" placeholder="Current password" />
+                
+                    <input id="Edit_password_new_passwd" class="Profile--password_update--new_password Profile--password_update--input" name="password" type="password" autocomplete="new-password" placeholder="New password" />
+                        
+                    <input id="Edit_password_confirm_password" class="Profile--password_update--confirm_password Profile--password_update--input" name="password_confirmation" type="password" autocomplete="new-password" placeholder="Confirm password" />
+                        
+                    <button id="Edit_password_confirm" class="Profile--password_update--confirm">Save</button>
+                </form>
+                
+            </div>
+        </main>
+    </body>
+</html>

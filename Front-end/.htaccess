@@ -1,0 +1,19 @@
+RewriteEngine On
+
+# Bloquer l'accès au dossier 'node_modules'
+RewriteRule ^node_modules/ - [F,L]
+
+# Bloquer l'accès au dossier 'src'
+RewriteRule ^src/ - [F,L]
+
+# Rediriger dans le dossier en si la langue n'est pas spécifiée
+RewriteRule ^$ /en/ [L,R=301]
+
+# Redirection des demandes de fichiers protégés vers proxy.php
+# RewriteCond %{REQUEST_URI} ^/protected/
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^protected/(.*)$ /proxy.php?file=$1 [L,QSA]
+RewriteRule ^protected/(.*)$ /proxy.php?file=$1 [L,QSA]
+
+

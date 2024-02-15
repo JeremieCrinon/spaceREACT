@@ -1,0 +1,516 @@
+/* Partie commune à toutes les pages */
+/*Background*/
+.Private--html{
+    height: 100%;
+    width: 100%;
+    
+}
+
+.Private--body{
+    /* background-image: url(../../public/img/Home_background.png);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: #EEE;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Background */
+
+/* Header */
+
+.Private--header{
+    width: 10%;
+    height: 100%;
+    background-color: #FFF;
+    /* border-right: 2px solid #664; */
+    position: relative;
+}
+
+.Private--header::after{
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: #664;
+    position: absolute;
+    top: 0;
+    right: calc(-3.5% - 2px);
+}
+
+.Private--main{
+    width: 88%;
+    margin: 1%;
+    margin-top: 5rem;
+    border-radius: 5px;
+    height: min-content;
+    background-color: #FFF;
+    padding: 5rem;
+}
+
+.Private--header--nav{
+    width: 100%;
+    height: 90%;
+    margin-top: 0;
+}
+
+.Private--header--nav ul{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30%;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.Private--header--nav ul li{
+    width: 100%;
+}
+
+.Private--header--nav ul li a{
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-decoration: none;
+    width: 80%;
+    margin-left: 10%;
+    line-height: 3rem;
+}
+
+.Private--header--li--current{
+    background-color: #664;
+    color: #FFF;
+    display: block;
+}
+
+.Private--header--li--current a{
+    color: #FFF!important;
+    
+}
+
+.Private--header--li--active{
+    background-color: #886;
+    margin-top: 0.2rem;
+    display: block;
+}
+
+.Private--header--li--active a{
+    color: #FFF!important;
+    
+}
+
+.Private--header--edit--under{
+    width: 100%;
+    background-color: lightgrey;
+    list-style-type: square!important;
+}
+
+.Private--header--edit--under a{
+    margin-left: 50%;
+    font-size: 0.8rem!important;
+    text-align: right!important;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1440px)
+{
+    .Private--header--nav ul li a {
+        font-size: 1.2rem;
+    }
+
+    .Private--header--nav ul li{
+        line-height: 2.4rem;
+    }
+
+}
+
+@media screen and (max-width: 1150px)
+{
+    .Private--header--nav ul li a{
+        font-size: 1rem;
+    }
+    
+    .Private--header--nav ul li{
+        line-height: 2rem;
+    }
+}
+
+/* Responsive */
+
+/* Header */
+/* Partie commune à toutes les pages */
+
+/* Dashboard */
+.Dashboard--title{
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 2.8rem;
+    text-align: center;
+}
+
+.Dashboard--description{
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2rem;
+}
+/* Dashboard */
+
+/* Profile */
+
+.Edit_profile--container{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-around;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 20px;
+}
+
+/* Modif passwd */
+.Profile--password_update{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    
+}
+
+.Profile--password_update--input{
+    width: 100%;
+    height: 3rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.Profile--password_update--confirm{
+    width: 100%;
+    height: 3rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.Profile--password_update--confirm:hover{
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+/* Modif passwd */
+
+/* Modif profile */
+
+.Profile--profile_update{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.Profile--profile_update--input{
+    width: 100%;
+    height: 3rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.Profile--profile_update--confirm{
+    width: 100%;
+    height: 3rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.Profile--profile_update--confirm:hover{
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+
+.Edit_profile--logout{
+    width: 60%;
+    margin-left: 20%;
+}
+
+.Edit_profile--logout--button{
+    width: 30%;
+    margin-left: 35%;
+    height: 3rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.Edit_profile--logout--button:hover{
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+
+/* Modif profile */
+
+/* Profile */
+
+/* Edit */
+.Edit--title{
+    color: 000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 2.8rem;
+    text-align: center;
+}
+
+.Edit--description{
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2rem;
+}
+
+.Edit--planets--title{
+    color: 000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.Edit--planets--container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 50px;
+}
+
+.Edit--planets--container--element{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.Edit--planets--container--element--element{
+    color: #000;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.Edit--planets--container--element--id{
+    width: 2%;
+}
+
+.Edit--planets--container--element--fr_name, .Edit--planets--container--element--en_name{
+    width: 10%;
+}
+
+.Edit--planets--container--element--fr_description, .Edit--planets--container--element--en_description{
+    width: 32%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Edit--planets--container--element--en_description{
+    margin-left: 3%;
+}
+
+.Edit--planets--container--element--distance{
+    width: 15%;
+    margin-left: 3%;
+}
+
+.Edit--planets--container--element--time{
+    width: 10%;
+}
+
+.Edit--planets--container--element--show{
+    width: calc(20% / 3);
+}
+
+.Edit--planets--container--element--edit{
+    width: calc(20% / 3);
+}
+
+.Edit--planets--container--element--delete{
+    width: calc(20% / 3);
+}
+
+.Edit--planets--container--element--show, .Edit--planets--container--element--edit{
+    display: block;
+    line-height: 1.8rem;
+    color: #FFF;
+    background-color: #664;
+    margin: 0 calc(5%/12);
+    padding: 0 calc(5%/12);
+    border-radius: 10%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.Edit--planets--container--element--delete{
+    display: block;
+    height: 100%!important;
+}
+
+.Edit--planets--container--element--delete--button{
+    color: #FFF;
+    background-color: #D31;
+    width: 100%;
+    height: 1.8rem;
+    border: none;
+    border-radius: 10%;
+    text-align: center;
+}
+
+.Edit--planets--link{
+    display: block;
+    color: #000;
+    background-color: #FFF;
+    text-decoration: none;
+    width: 20%;
+    margin-top: 2rem;
+    margin-left: 5%;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 4rem;
+    border: 1px solid #000;
+}
+
+.Edit--planets--link:hover{
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+
+@media screen and (max-width: 1515px) {
+    .Edit--planets--container--element--element{
+        font-size: 1.2rem;
+    }
+
+} 
+
+@media screen and (max-width: 1208px){
+    .Edit--planets--container--element--element{
+        font-size: 1rem;
+    }
+}
+
+
+
+/* Create */
+
+.Create--message{
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2rem;
+}
+
+/* Create */
+
+/* Create  */
+
+/* Edit a planet */
+
+.Edit--planet--form{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15%;
+    margin-top: 5rem;
+}
+
+.Edit--planet--form--image{
+    width: 30%;
+}
+
+.Edit--planet--form--label{
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.Edit--planet--form--input{
+    margin-top: 1.5rem;
+}
+
+.Edit--planet--form--input--image{
+    width: 10%;
+    
+}
+
+.Edit--planet--form--button{
+    margin-top: 2rem;
+}
+/* Edit a planet */
+
+/* Edit a crew */
+
+.Edit--planets--container--element--fr_role, .Edit--planets--container--element--en_role{
+    width: 13%;
+}
+
+.Edit--planets--container--element--name{
+    width: 10%;
+
+}
+
+.Edit--planets--container--element--fr_crew_description, .Edit--planets--container--element--en_crew_description{
+    width: 30%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Edit */

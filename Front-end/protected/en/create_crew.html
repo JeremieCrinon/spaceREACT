@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="Private--html">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Space</title>
+
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
+
+        <script src="../js/en/create_crew.js" defer></script>
+    </head>
+    <body class="Private--body">
+        <header class="Private--header">
+
+            <nav class="Private--header--nav">
+                <ul>
+                    <li><a href="../../en/index.html">PUBLIC PART</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li id="Private--header--li--edit"  class="Private--header--li--current"><a href="#">EDIT CONTENT</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="planet.html">EDIT PLANETS</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="crew.html">EDIT CREWS</a></li>
+                    <li class="d-none Private--header--edit--under"><a href="tech.html">EDIT TECHES</a></li>
+                    <li><a href="profile.html">PROFILE</a></li>
+                </ul>
+            </nav>
+        
+            <script>
+                const editParrent = document.querySelector("#Private--header--li--edit");
+                const edit = document.querySelector("#Private--header--li--edit a");
+                const editUnder = document.querySelectorAll(".Private--header--edit--under");
+        
+                edit.addEventListener("click", function() {
+                    editParrent.classList.toggle("Private--header--li--active");
+                    editUnder.forEach(function(element) {
+                        element.classList.toggle("d-none");
+                    });
+                });
+            </script>
+        
+        </header>
+
+        <main class="Private--main">
+        
+
+            <h1 class="Edit--title">Create a crew</h1>
+        
+            <p class="Edit--description">
+                Welcome to the create crew page. In this page, you can create a crew that will be displayed in the website!
+            </p>
+
+            <div class="Create--message" id="create_message">
+            </div>
+
+            <form action="#" method="post" id="form_create_crew" class="Create--form" enctype="multipart/form-data">
+                <!-- Nom -->
+                <input class="Create--form--input" type="text" id="fr_role" placeholder="Role in french" required autofocus />
+                <input class="Create--form--input" type="text" id="en_role" placeholder="Role in english" required autofocus />
+                <!-- Descrition -->
+                <input class="Create--form--input" type="text" id="fr_description" placeholder="Description in french" required autofocus />
+                <input class="Create--form--input" type="text" id="en_description" placeholder="Description in english" required autofocus />
+                <!-- Distance -->
+                <input class="Create--form--input" type="text" id="name" placeholder="Name" required autofocus />
+                <!-- Image -->
+                <input class="Create--form--input" type="file" id="image" placeholder="Image" required autofocus />
+    
+                <button class="Create--form--validate">
+                    Send
+                </button>
+    
+            </form>
+    
+            
+        </main>
+    </body>
+</html>

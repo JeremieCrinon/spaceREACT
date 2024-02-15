@@ -1,0 +1,241 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap');
+/* Fonts */
+
+/* Class générales */
+.d-none{
+    display: none!important;
+}
+/* Class générales */
+
+/* Partie commune à toutes les pages */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #000;
+}
+
+/* Header */
+
+.Website--header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.Website--header--logo{
+    margin-left: 4.8%;
+    padding: 64px 0;
+    width: 3.33%;
+}
+
+.Website--header--bar{
+    height: 1px;
+    width: 32.8%;
+    margin-left: 11.59%;
+    background-color: #FFF;
+    opacity: 0.25;
+    position: absolute;
+    z-index: 5;
+}
+
+.Website--header--menu{
+    backdrop-filter: blur(100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 35.2%;
+    width: 57.6%;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.Website--header--menu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    padding: 40px 0;
+}
+
+.Website--header--menu ul a{
+    color: #FFF;
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    display: block;
+    white-space: nowrap;
+}
+
+.Website--header--menu ul a span{
+    font-weight: 700;
+    margin-right: 12px;
+}
+
+.Website--header--menu li{
+    margin: 0 2.9%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.Website--header--li--current::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #FFF;
+    margin-top: 8px;
+    position: absolute;
+    bottom: -39px;
+}
+
+.Website--header--menu li:not(.Website--header--li--current):hover::after{
+    content: '';
+    display: block;
+    width: 93px;
+    height: 3px;
+    background-color: #FFF;
+    margin-top: 8px;
+    position: absolute;
+    bottom: -39px;
+    opacity: 0.5;
+}
+
+.Website--header--language{
+    margin: 0 2%;
+}
+
+/*Responsive*/
+
+/* Tablet */
+
+@media screen and (max-width: 940px){
+    .Website--header--logo{
+        width: 6.2%;
+        padding: 24px 0;
+    }
+
+    .Website--header--bar{
+        display: none;
+    }
+
+    .Website--header--menu{
+        margin-left: 41.2%;
+        width: 58.5%;
+        backdrop-filter: none;
+    }
+
+    .Website--header--menu ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .Website--header--menu ul a{
+        opacity: 1;
+        font-size: 1.4rem;
+        font-weight: 400;
+        font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .Website--header--menu ul a span{
+        display: none;
+    }
+
+    .Website--header--menu li{
+        margin: 0;
+    }
+}
+
+/* Tablet */
+
+/* Mobile */
+@media screen and (max-width: 670px){
+    .Website--header--menu{
+        display: none;
+    }
+
+    .Website--header--menu--active{
+        display: block;
+        position: absolute;
+        backdrop-filter: blur(20px);
+        position: absolute;
+        width: 67.7%;
+        margin: 0;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        height: 100vh;
+    }
+
+    .Website--header--menu--active ul{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding-top: 120px;
+    }
+
+    .Website--header--menu--active ul li{
+        padding: 16px;
+    }
+
+
+
+    .Website--header--menu--hamburger{
+        width: 24px;
+        height: 21px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        right: 6.4%;
+        z-index: 3;
+    }
+
+    .Website--header--menu--hamburger--line{
+        width: 100%;
+        height: 3px;
+        background-color: #D0D6F9;
+    }
+
+    .Website--header--menu li{
+        display: block;
+        margin-left: 10%;
+    }
+
+    .Website--header--menu ul a span{
+        display: inline;
+        margin-right: 0;
+    }
+
+    .Website--header--menu ul a{
+        font-size: 1.6rem;
+    }
+
+    .Website--header--li--current::after{
+        width: 4px;
+        height: 80%;
+        top: -3px;
+        right: 0;
+    }
+
+    .Website--header--language{
+        margin-left: 14%;
+        margin-top: 20px;
+    }
+
+}
+/* Mobile */
+
+/*Responsive*/

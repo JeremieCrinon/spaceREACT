@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^$ Front-end/ [L]
+RewriteRule (.*) Front-end/$1 [L]

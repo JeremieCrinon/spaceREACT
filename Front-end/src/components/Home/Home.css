@@ -1,0 +1,311 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap');
+/* Fonts */
+
+/* Class générales */
+.d-none{
+    display: none!important;
+}
+/* Class générales */
+
+/* Partie commune à toutes les pages */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+/*Background*/
+.Home--html{
+    height: 100%;
+    width: 100%;
+}
+
+.Home--body{
+    background-image: url(./img/Home_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background */
+
+/* Titre */
+
+.Home--title{
+    color: #D0D6F9;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    display: inline;
+    text-transform: uppercase;
+}
+
+.Home--title strong{
+    font-family: 'Bellefair', serif;
+    font-size: 15rem;
+    color: #FFF;
+    font-weight: 400;
+    display: block;
+    margin: 32px 0;
+    text-transform: uppercase;
+}
+
+.Home--undertitle{
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.8rem;
+    color: #D0D6F9;
+    font-weight: 400;
+}
+
+.Home--title--container{
+    margin-left: 11.4%;
+    width: min-content;
+    text-align: justify;
+    position: absolute;
+    bottom: 18.1%;
+}
+
+/* Titre */
+
+/* Bouton principal */
+.Home--main_button--link{
+    text-decoration: none;
+    color: #0B0D17;
+    background-color: #FFF;
+    display: block;
+    font-size: 3.2rem;
+    font-family: 'Bellefair', serif;
+    font-weight: 400;
+    width: 29.4rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 29.4rem;
+    position: absolute;
+    bottom: 14.5%;
+    right: 11.4%;
+    text-transform: uppercase;
+}
+
+.Home--main_button--link:hover::after{
+    background-color: #FFF;
+    display: block;
+    position: absolute;
+    content: '';
+    width: 45rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    opacity: 0.1;
+    bottom: -25%;
+    right: -25%;
+}
+
+/* Responsive */
+
+/* Desktop */
+
+@media screen and (max-width: 1250px){
+    .Home--title{
+        font-size: 2.4rem;
+    }
+
+    .Home--title strong{
+        font-size: 12rem;
+    }
+
+    .Home--undertitle{
+        font-size: 1.6rem;
+    }
+
+    .Home--main_button--link{
+        font-size: 2.8rem;
+        width: 25.6rem;
+        line-height: 25.6rem;
+    }
+
+    .Home--main_button--link:hover::after{
+        width: 40rem;
+        bottom: -27.5%;
+        right: -27.5%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .Home--title{
+        font-size: 2rem;
+    }
+
+    .Home--title strong{
+        font-size: 10rem;
+    }
+
+    .Home--undertitle{
+        font-size: 1.2rem;
+    }
+
+    .Home--main_button--link{
+        font-size: 2.4rem;
+        width: 20rem;
+        line-height: 20rem;
+    }
+
+    .Home--main_button--link:hover::after{
+        width: 30rem;
+        bottom: -25%;
+        right: -25%;
+    }
+}
+
+@media screen and (max-width: 850px){
+    .Home--title{
+        font-size: 1.8rem;
+    }
+
+    .Home--title strong{
+        font-size: 8rem;
+    }
+
+    .Home--undertitle{
+        font-size: 1rem;
+    }
+
+    .Home--main_button--link{
+        font-size: 2rem;
+        width: 16rem;
+        line-height: 16rem;
+    }
+
+    .Home--main_button--link:hover::after{
+        width: 25rem;
+        bottom: -27.5%;
+        right: -27.5%;
+    }
+}
+
+/* Desktop */
+
+/* Version tablet */
+@media screen and (max-width: 768px){
+    .Home--body{
+        background-image: url(./img/Home_background_tablet.png);
+    
+    }
+
+    .Home--title--container{
+        text-align: center;
+        width: 58.5%;
+        top: 202px;
+        left: 20.75%;
+        margin: 0;
+    }
+
+    .Home--main_button--link{
+        width: 24.2rem;
+        font-size: 3.2rem;
+        line-height: 24.2rem;
+        bottom: 90px;
+        left: calc(50% - 12.1rem);
+    }
+
+    .Home--main_button--link:hover::after{
+        display: none;
+    }
+
+    .Home--undertitle{
+        font-size: 1.6rem;
+        text-align: justify-center;
+    }
+
+
+}
+
+@media screen and (max-width: 600px){
+    .Home--title{
+        font-size: 1.4rem;
+    }
+
+    .Home--title strong{
+        font-size: 6rem;
+    }
+
+    .Home--undertitle{
+        font-size: 1rem;
+    }
+}
+
+/* Si l'utilisateur à un petit écran en long, comme un mobile en mode horizontalle, on essaye d'adapter pour que ça passe */
+@media screen and (max-width: 768px) and (max-height: 850px) and (min-width: 450px){
+    .Home--main_button--link{
+        width: 15rem;
+        font-size: 1.6rem;
+        line-height: 15rem;
+        bottom: 30px;
+        left: calc(50% - 7.5rem);
+    }
+
+    .Home--title strong{
+        margin: 10px 0;
+    }
+
+    /* .Home--title{
+        font-size: 1.8rem;
+    }
+
+    .Home--title strong{
+        font-size: 8rem;
+    } */
+
+    .Home--undertitle{
+        font-size: 1rem;
+    }
+    
+}
+/* Si l'utilisateur à un petit écran en long, comme un mobile en mode horizontalle, on essaye d'adapter pour que ça passe */
+
+/* Si l'utilisateur à un petit écran en long, mais moins haut que le code juste au dessus, on affiche certains éléments comme en desktop */
+@media screen and (max-width: 768px) and (max-height: 590px) and (min-width: 450px){
+    .Home--main_button--link{
+        left: 70%;
+        top: 202px;
+    }
+
+    .Home--title--container{
+        left: 5%;
+    }
+
+    .Home--title strong{
+        font-size: 5rem;
+    }
+}
+/* Si l'utilisateur à un petit écran en long, mais moins haut que le code juste au dessus, on affiche certains éléments comme en desktop */
+
+
+/* Version tablet */
+
+/* Mobile */
+@media screen and (max-width: 450px){
+    .Home--title--container{
+        top: 112px;
+    }
+
+    .Home--main_button--link{
+        width: 15rem;
+        font-size: 2rem;
+        line-height: 15rem;
+        bottom: 48px;
+        left: calc(50% - 7.5rem);
+    }
+}
+/* Mobile */
+
+/* Responsive */
+
+/* Accueil */

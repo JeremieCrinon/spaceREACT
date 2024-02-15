@@ -74,6 +74,7 @@ body{
     font-size: 1.6rem;
     display: block;
     white-space: nowrap;
+    text-transform: uppercase;
 }
 
 .Website--header--menu ul a span{

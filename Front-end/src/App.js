@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Header from './components/Header/Header';
+import Home from './components/Home/Home';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 
@@ -19,10 +20,18 @@ export default function App() {
         }
     } 
 
+    if(page === 'home') {
+        document.body.className = 'Home--body';
+        document.documentElement.className = 'Home--html';
+    }
+
     return (
         <div className="App">
             <Header page={page} changePage={changePage} changeLanguage={changeLanguage} />
-            
+            { page === 'home' && <Home /> }
+            { page === 'destination' && <Destination /> }
+            { page === 'crew' && <Crew /> }
+            { page === 'technology' && <Technology /> }
         </div>
     );
 }

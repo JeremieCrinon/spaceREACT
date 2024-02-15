@@ -3,6 +3,10 @@
     "header.home": "Home",
     "header.destination": "Destination",
     "header.crew": "Crew",
-    "header.technology": "Technology"
+    "header.technology": "Technology",
+    "home.title": "So, you wanna travel to",
+    "home.title.strong": "Space",
+    "home.subtitle": "Let's be real; if you want to go to space, you could go to the real space and not just the border of it! Well, just sit here, cause we're gonna give you a trully crazy experience!",
+    "home.button": "Explore"
 }
   

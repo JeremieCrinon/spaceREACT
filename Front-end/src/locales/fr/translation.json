@@ -3,6 +3,10 @@
     "header.home": "Accueil",
     "header.destination": "Destination",
     "header.crew": "Equipage",
-    "header.technology": "Technologie"
+    "header.technology": "Technologie",
+    "home.title": "Donc, vous voulez voyager dans",
+    "home.title.strong": "l'espace",
+    "home.subtitle": "Soyons objectif; si vous voulez aller dans l'espace, vous pouvez aller véritablement dans le véritable espace et non juste planer sur le bord de celui-ci. Eh bien, asseyez-vous parce que nous allons vous donner une expérience vraiment extraordinaire!",
+    "home.button": "Explorer"
   }
   

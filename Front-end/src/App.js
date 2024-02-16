@@ -6,6 +6,8 @@ import Header from './components/Header/Header';
 import Home from './pages/Home';
 import Destination from './pages/Destination';
 import Crew from './pages/Crew';
+import Tech from './pages/Tech';
+import NoPage from './pages/NoPage';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 
@@ -25,6 +27,8 @@ export default function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/destination" element={<Destination />} />
                     <Route path="/crew" element={<Crew />} />
+                    <Route path="/tech" element={<Tech />} />
+                    <Route path="*" element={<NoPage />} />
                 </Routes>
             </div>
         </BrowserRouter>

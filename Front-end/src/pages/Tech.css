@@ -1,0 +1,222 @@
+/* Technologie */
+
+.Tech--body{
+    background-image: url(../img/Tech_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0B0D17;
+}
+
+.Tech--text{
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+    margin-left: 8%;
+    height: 30.4rem;
+    margin-top: 137px;
+}
+
+.Tech--text--nav{
+    height: 100%;
+}
+
+.Tech--text--nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style-type: none;
+    height: 100%;
+}
+
+.Tech--text--nav--link{
+    background-color: transparent;
+    display: block;
+    width: 8rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    text-decoration: none;
+    color: #FFF;
+    font-family: "Bellfair", serif;
+    font-weight: 400;
+}
+
+.Tech--text--nav--link--current{
+    background-color: #FFF;
+    color: #0B0D17;
+}
+
+.Tech--text--nav--link:not(.Tech--text--nav--link--current):hover{
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.Tech--text--infos{
+    margin-left: 13.2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Tech--text--title{
+    color: #D0D6F9;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.Tech--text--subtitle{
+    color: #FFF;
+    font-family: "Bellfair", serif;
+    font-size: 5.6rem;
+    font-weight: 400;
+    margin-top: 25px;
+}
+
+.Tech--text--description{
+    color: #D0D6F9;
+    font-family: "Barlow", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 25px;
+    width: 73.5%;
+}
+
+.Tech--img{
+    position: absolute;
+    right: 0;
+    top: 272px;
+    width: 35.7%;
+    overflow: hidden;
+}
+
+.Tech--text--subtitle{
+    text-transform: uppercase;
+}
+
+/* Responsive */
+
+/* Tablet */
+
+@media screen and (max-width: 768px){
+    .Tech--img{
+        width: 100%;
+        height: 310px;
+        top: 220px;
+        overflow: hidden;
+    }
+
+    .Tech--img--image{
+        width: 100%;
+        position: absolute;
+        bottom: -100px;
+    }
+
+    .Tech--text{
+        position: absolute;
+        top: 586px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    .Tech--text--nav{
+        width: 27.6%;
+    }
+
+    .Tech--text--nav ul{
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .Tech--text--nav--link{
+        width: 6rem!important;
+        font-size: 2.4rem!important;
+    }
+
+    .Tech--text--infos{
+        margin: 0;
+        margin-top: 34px;
+    }
+
+    .Tech--text--title{
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .Tech--text--subtitle{
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .Tech--text--description{
+        font-size: 1.6rem;
+        width: 60%;
+        text-align: center;
+        margin-left: 20%;
+    }
+
+}
+
+/* Tablet */
+
+/* Mobile */
+
+@media screen and (max-width: 690px){
+    .Tech--img{
+        height: 170px;
+        top: 200px;
+    }
+
+    .Tech--text{
+        top: 400px;
+    }
+
+    .Tech--text--nav{
+        width: 51.2%;
+        height: 66px;
+    }
+
+    .Tech--text--nav--link{
+        width: 4rem!important;
+        font-size: 1.6rem!important;
+    }
+
+    .Tech--text--infos{
+        margin-top: 0px;
+    }
+
+    .Tech--text--title{
+        font-size: 1.4rem;
+    }
+
+    .Tech--text--subtitle{
+        font-size: 2.4rem;
+    }
+
+    .Tech--text--description{
+        font-size: 1.4rem;
+        width: 87.2%;
+        margin-left: 6.4%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .Tech--img{
+        top: 139px;
+    }
+
+    .Tech--text{
+        top: 343px;
+    }
+}
+
+/* Mobile */
+
+/* Responsive */
+
+/* Technologie */

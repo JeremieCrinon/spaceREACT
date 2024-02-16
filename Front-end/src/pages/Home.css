@@ -26,7 +26,7 @@ html{
 }
 
 .Home--body{
-    background-image: url(./img/Home_background.png);
+    background-image: url(../img/Home_background.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -195,7 +195,7 @@ html{
 /* Version tablet */
 @media screen and (max-width: 768px){
     .Home--body{
-        background-image: url(./img/Home_background_tablet.png);
+        background-image: url(../img/Home_background_tablet.png);
     
     }
 

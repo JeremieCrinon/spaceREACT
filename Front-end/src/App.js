@@ -1,38 +1,32 @@
 import React from 'react';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import Header from './components/Header/Header';
-import Home from './components/Home/Home';
+import Home from './pages/Home';
+import Destination from './pages/Destination';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 
 export default function App() {
-    const [page, setPage] = useState('home');
 
     const { t, i18n } = useTranslation();
 
     const changeLanguage = (language) => {
       i18n.changeLanguage(language);
     };
-
-    const changePage = (newPage) => {
-        if (newPage === 'home' || newPage === 'destination' || newPage === 'crew' || newPage === 'technology') {
-            setPage(newPage);
-        }
-    } 
-
-    if(page === 'home') {
-        document.body.className = 'Home--body';
-        document.documentElement.className = 'Home--html';
-    }
-
     return (
-        <div className="App">
-            <Header page={page} changePage={changePage} changeLanguage={changeLanguage} />
-            { page === 'home' && <Home /> }
-            { page === 'destination' && <Destination /> }
-            { page === 'crew' && <Crew /> }
-            { page === 'technology' && <Technology /> }
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Header changeLanguage={changeLanguage} />
+                
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/destination" element={<Destination />} />
+                    
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 

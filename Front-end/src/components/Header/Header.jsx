@@ -3,12 +3,16 @@ import { useState } from 'react';
 import './Header.css';
 import { useTranslation } from 'react-i18next';
 import '../../i18n';
+import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
-export default function Header({ page, changePage, changeLanguage }) {
+export default function Header({ changeLanguage }) {
     // État pour suivre si la classe du hamburger est active
     const [isActive, setIsActive] = useState(false);
 
     const { t, i18n } = useTranslation();
+
+    const location = useLocation();
 
     // Gestionnaire d'événements pour basculer l'état de l'hamburger
     const toggleBurgerClass = () => {
@@ -36,10 +40,11 @@ export default function Header({ page, changePage, changeLanguage }) {
 
             <div className={`Website--header--menu ${isActive ? 'Website--header--menu--active' : ''}`}>
                 <ul>
-                    <li className={page === 'home' ? 'Website--header--li--current' : ''}><a onClick={(e) => { e.preventDefault(); changePage('home'); }} href="#"><span>00</span> {t('header.home')}</a></li>
-                    <li className={page === 'destination' ? 'Website--header--li--current' : ''}><a onClick={(e) => { e.preventDefault(); changePage('destination'); }} href="#"><span>01</span> {t('header.destination')}</a></li>
-                    <li className={page === 'crew' ? 'Website--header--li--current' : ''}><a onClick={(e) => { e.preventDefault(); changePage('crew'); }} href="#"><span>02</span> {t('header.crew')}</a></li>
-                    <li className={page === 'technology' ? 'Website--header--li--current' : ''}><a onClick={(e) => { e.preventDefault(); changePage('technology'); }} href="#"><span>03</span> {t('header.technology')}</a></li>
+                    {/* <li className={page === 'home' ? 'Website--header--li--current' : ''}><Link to="/"><span>00</span> {t('header.home')}</Link></li> */}
+                    <li className={location.pathname === '/' ? 'Website--header--li--current' : ''}><Link to="/"><span>00</span> {t('header.home')}</Link></li>
+                    <li className={location.pathname === '/destination' ? 'Website--header--li--current' : ''}><Link to="/destination"><span>01</span> {t('header.destination')}</Link></li>
+                    <li className={location.pathname === '/crew' ? 'Website--header--li--current' : ''}><a href="#"><span>02</span> {t('header.crew')}</a></li>
+                    <li className={location.pathname === '/tech' ? 'Website--header--li--current' : ''}><a href="#"><span>03</span> {t('header.technology')}</a></li>
                     <a className="Website--header--language" onClick={(e) => { e.preventDefault(); changeLanguage('en'); }} href="#">English</a>
                     <a className="Website--header--language" onClick={(e) => { e.preventDefault(); changeLanguage('fr'); }} href="#">Français</a>
 

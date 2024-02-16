@@ -120,7 +120,7 @@ body{
 
 /* Tablet */
 
-@media screen and (max-width: 940px){
+@media screen and (max-width: 1030px){
     .Website--header--logo{
         width: 6.2%;
         padding: 24px 0;
@@ -162,7 +162,7 @@ body{
 /* Tablet */
 
 /* Mobile */
-@media screen and (max-width: 670px){
+@media screen and (max-width: 780px){
     .Website--header--menu{
         display: none;
     }

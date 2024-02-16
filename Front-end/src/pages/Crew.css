@@ -1,0 +1,222 @@
+/* Equipage */
+
+.Crew--body{
+    background-image: url(../img/Crew_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0B0D17;
+}
+
+.Crew--image{
+    width: 45.1%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.Crew--image img{
+    width: 71.1%;
+}
+
+.Crew--image__mobile{
+    display: none;
+}
+
+.Crew--bar__mobile{
+    display: none;
+}
+
+.Crew--text--nav__mobile{
+    display: none;
+}
+
+.Crew--text{
+    width: 33.8%;
+    margin-left: 11.5%;
+    margin-top: 10.6%;
+}
+
+.Crew--text--role{
+    color: #FFF;
+    opacity: 0.5;
+    font-family: "Bellfair", serif;
+    font-size: 3.2rem;
+    text-transform: uppercase;
+}
+
+.Crew--text--name{
+    color: #FFF;
+    font-family: "Bellfair", serif;
+    font-size: 5rem;
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+
+.Crew--text--description{
+    color: #D0D6F9;
+    font-family: "Barlow", sans-serif;
+    font-size: 1.8rem;
+    margin-top: 4rem;
+}
+
+.Crew--text--nav{
+    margin-top: 10rem;
+}
+
+.Crew--text--nav ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.Crew--text--nav--link{
+    display: block;
+    background-color: #FFF;
+    opacity: 0.18;
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.Crew--text--nav--link:not(.Crew--text--nav--link--current):hover{
+    opacity: 0.5;
+}
+
+.Crew--text--nav--link--current{
+    opacity: 1;
+}
+
+/* Responsive */
+
+/* Desktop */
+
+@media screen and (max-height: 800px) and (min-width: 769px){
+    .Crew--container{
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .Crew--image img{
+        width: 90%;
+    }
+}
+
+/* Desktop */
+
+/* Tablet */
+
+@media screen and (max-width: 768px) {
+    .Crew--body{
+        background-image: url(../img/Crew_background_mobile.png);
+    }
+
+    .Crew--text{
+        width: 72.6%;
+        text-align: center;
+    }
+
+    .Crew--text--nav ul{
+        width: 15.7%;
+        margin-left: 42.15%;
+    }
+
+    .Crew--text--role{
+        font-size: 2.4rem;
+    }
+
+    .Crew--text--name{
+        margin-top: 20px;
+        font-size: 4rem;
+    }
+
+    .Crew--text--description{
+        font-size: 1.6rem;
+        margin-top: 32px;
+    }
+
+    .Crew--text--nav{
+        margin-top: 48px;
+    }
+
+    .Crew--text--nav--link{
+        width: 1rem;
+    }
+
+    .Crew--image{
+        width: 100%;
+        position: relative;
+        margin-top: 40px;
+    }
+
+    .Crew--image img{
+        width: 53.5%;
+        margin-left: 23.25%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .Crew--text--nav ul{
+        width: 20.7%;
+        margin-left: 39.65%;
+    }
+}
+
+/* tablet */
+
+/* Mobile */
+
+@media screen and (max-width: 375px){
+    .Crew--image:not(.Crew--image__mobile){
+        display: none;
+    }
+
+    .Crew--text--nav:not(.Crew--text--nav__mobile){
+        display: none;
+    }
+
+    .Crew--image{
+        display: block;
+    }
+
+    .Crew--text--nav__mobile{
+        display: block;
+        margin-top: 32px;
+    }
+
+    .Crew--bar__mobile{
+        display: block;
+        margin-left: 6.4%;
+        margin-top: -2px;
+        width: 87.2%;
+        height: 1px;
+        background-color: #383B4B;
+    }
+
+    .Crew--text{
+        margin-top: 46px;
+    }
+
+    .Crew--text--role{
+        font-size: 1.6rem;
+    }
+
+    .Crew--text--name{
+        margin-top: 0;
+        font-size: 2.4rem;
+    }
+
+    .Crew--text--description{
+        font-size: 1.5rem;
+        margin-top: 32px;
+    }
+}
+
+/* Mobile */
+
+/* Responsive */
+
+
+/* Equipage */

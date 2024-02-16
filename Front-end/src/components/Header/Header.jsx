@@ -43,7 +43,7 @@ export default function Header({ changeLanguage }) {
                     {/* <li className={page === 'home' ? 'Website--header--li--current' : ''}><Link to="/"><span>00</span> {t('header.home')}</Link></li> */}
                     <li className={location.pathname === '/' ? 'Website--header--li--current' : ''}><Link to="/"><span>00</span> {t('header.home')}</Link></li>
                     <li className={location.pathname === '/destination' ? 'Website--header--li--current' : ''}><Link to="/destination"><span>01</span> {t('header.destination')}</Link></li>
-                    <li className={location.pathname === '/crew' ? 'Website--header--li--current' : ''}><a href="#"><span>02</span> {t('header.crew')}</a></li>
+                    <li className={location.pathname === '/crew' ? 'Website--header--li--current' : ''}><Link to="/crew"><span>02</span> {t('header.crew')}</Link></li>
                     <li className={location.pathname === '/tech' ? 'Website--header--li--current' : ''}><a href="#"><span>03</span> {t('header.technology')}</a></li>
                     <a className="Website--header--language" onClick={(e) => { e.preventDefault(); changeLanguage('en'); }} href="#">English</a>
                     <a className="Website--header--language" onClick={(e) => { e.preventDefault(); changeLanguage('fr'); }} href="#">Français</a>

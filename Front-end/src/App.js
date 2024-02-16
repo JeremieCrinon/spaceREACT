@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import Destination from './pages/Destination';
+import Crew from './pages/Crew';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 
@@ -19,11 +20,11 @@ export default function App() {
         <BrowserRouter>
             <div className="App">
                 <Header changeLanguage={changeLanguage} />
-                
+
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/destination" element={<Destination />} />
-                    
+                    <Route path="/crew" element={<Crew />} />
                 </Routes>
             </div>
         </BrowserRouter>

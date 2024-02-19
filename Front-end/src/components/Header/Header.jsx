@@ -5,10 +5,14 @@ import { useTranslation } from 'react-i18next';
 import '../../i18n';
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function Header({ changeLanguage }) {
     // État pour suivre si la classe du hamburger est active
     const [isActive, setIsActive] = useState(false);
+    const [firstPlanet, setFirstPlanet] = useState(false);
+    const [firstCrew, setFirstCrew] = useState(false);
+    const [firstTech, setFirstTech] = useState(false);
 
     const { t, i18n } = useTranslation();
 
@@ -20,6 +24,54 @@ export default function Header({ changeLanguage }) {
     };
 
     // page = page.page;
+            
+    useEffect(() => {
+        fetch('http://localhost:8000/api/planets')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erreur réseau');
+            }
+            return response.json();
+          })
+          .then(data => {
+            setFirstPlanet(data[0]);
+            })
+            .catch(error => {
+                console.error("Erreur lors de la récupération des données:", error)
+            });
+        }, []);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/api/crews')
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur réseau');
+            }
+            return response.json();
+            })
+            .then(data => {
+            setFirstCrew(data[0]);
+        })
+            .catch(error => {
+            console.error("Erreur lors de la récupération des données:", error)
+            });
+        }, []);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/api/teches')
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur réseau');
+            }
+            return response.json();
+            })
+            .then(data => {
+            setFirstTech(data[0]);
+        })
+            .catch(error => {
+            console.error("Erreur lors de la récupération des données:", error)
+            });
+        }, []);
 
     return (
         <header className="Website--header">
@@ -42,9 +94,9 @@ export default function Header({ changeLanguage }) {
                 <ul>
                     {/* <li className={page === 'home' ? 'Website--header--li--current' : ''}><Link to="/"><span>00</span> {t('header.home')}</Link></li> */}
                     <li className={location.pathname === '/' ? 'Website--header--li--current' : ''}><Link to="/"><span>00</span> {t('header.home')}</Link></li>
-                    <li className={location.pathname === '/destination' ? 'Website--header--li--current' : ''}><Link to="/destination"><span>01</span> {t('header.destination')}</Link></li>
-                    <li className={location.pathname === '/crew' ? 'Website--header--li--current' : ''}><Link to="/crew"><span>02</span> {t('header.crew')}</Link></li>
-                    <li className={location.pathname === '/tech' ? 'Website--header--li--current' : ''}><Link to="/tech"><span>03</span> {t('header.technology')}</Link></li>
+                    <li className={location.pathname === '/destination' ? 'Website--header--li--current' : ''}><Link to={`/destination?id=${firstPlanet.id}&planet_name=${i18n.language === 'fr' ? firstPlanet.fr_name : firstPlanet.en_name}`}><span>01</span> {t('header.destination')}</Link></li>
+                    <li className={location.pathname === '/crew' ? 'Website--header--li--current' : ''}><Link to={`/crew?id=${firstCrew.id}&crew_name=${firstCrew.name}`}><span>02</span> {t('header.crew')}</Link></li>
+                    <li className={location.pathname === '/tech' ? 'Website--header--li--current' : ''}><Link to={`/tech?id=${firstTech.id}&tech_name=${i18n.language === 'fr' ? firstTech.fr_name : firstTech.en_name}`}><span>03</span> {t('header.technology')}</Link></li>
                     <a className="Website--header--language" onClick={(e) => { e.preventDefault(); changeLanguage('en'); }} href="#">English</a>
                     <a className="Website--header--language" onClick={(e) => { e.preventDefault(); changeLanguage('fr'); }} href="#">Français</a>
 

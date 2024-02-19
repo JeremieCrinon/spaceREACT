@@ -23,7 +23,7 @@ function TechContentNormal({ tech, menuData, changeTech }){
                 <nav class="Tech--text--nav">
                     <ul id="tech_menu">
                         {menuData.map((planet, index) => (
-                            <li><a href="#" onClick={() => changeTech(planet.id)} className={`Tech--text--nav--link ${tech.id === planet.id ? 'Tech--text--nav--link--current' : ''}`}>{index + 1}</a></li>
+                            <li><a href={`?id=${planet.id}&planet_name=${i18n.language === 'fr' ? planet.fr_name : planet.en_name}`} onClick={() => changeTech()} className={`Tech--text--nav--link ${tech.id === planet.id ? 'Tech--text--nav--link--current' : ''}`}>{index + 1}</a></li>
                         ))}
                         {/* <li><a class="Tech--text--nav--link Tech--text--nav--link--current" href="{{ url('/tech/launcher') }}">1</a></li>
                         <li><a class="Tech--text--nav--link" href="{{ url('/tech/spaceport') }}">2</a></li>
@@ -69,15 +69,18 @@ export default function Tech() {
           })
           .then(data => {
             setMenuData(data);
-            changeTech(data[0]['id']);
+            changeTech();
         })
           .catch(error => {
             console.error("Erreur lors de la récupération des données:", error)
           });
       }, []);
 
-    function changeTech(techId) {
-        fetch(`http://localhost:8000/api/tech/${techId}`)
+    function changeTech() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id');
+        fetch(`http://localhost:8000/api/tech/${id}`)
           .then(response => {
             if (!response.ok) {
               throw new Error('Erreur réseau');

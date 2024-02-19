@@ -15,7 +15,7 @@ class CrewController extends Controller
      */
     public function indexForMenu()
     {
-        $crews = Crew::select('id')->get();
+        $crews = Crew::select('id', 'name')->get();
         return response()->json($crews);
     }
 

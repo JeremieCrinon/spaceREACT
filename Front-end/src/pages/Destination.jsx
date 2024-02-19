@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './Destination.css';
 import { useTranslation } from 'react-i18next';
 import '../i18n';
+import { useParams } from 'react-router-dom';
 
 function DestinationContentNormal({ destination, menuData, changeDestination }){
     document.body.className = 'Destination--body';
@@ -21,7 +22,7 @@ function DestinationContentNormal({ destination, menuData, changeDestination }){
             <section className="Destination--text">
                 <nav id="Destination_nav" className="Destination--nav">
                     {menuData.map((planet) => (
-                        <a href="#" onClick={() => changeDestination(planet.id)} className={`Destination--nav__link ${destination.id === planet.id ? 'Destination--nav__link__current' : ''}`}>{i18n.language === 'fr' ? planet.fr_name : planet.en_name}</a>
+                        <a href={`?id=${planet.id}&planet_name=${i18n.language === 'fr' ? planet.fr_name : planet.en_name}`} onClick={() => changeDestination()} className={`Destination--nav__link ${destination.id === planet.id ? 'Destination--nav__link__current' : ''}`} key={planet.id}>{i18n.language === 'fr' ? planet.fr_name : planet.en_name}</a>
                     ))}
                     {/* <a href="{{ url('/destination/moon') }}" class="Destination--nav__link Destination--nav__link__current">Moon</a>
                     <a href="{{ url('/destination/mars') }}" class="Destination--nav__link">Mars</a>
@@ -29,6 +30,8 @@ function DestinationContentNormal({ destination, menuData, changeDestination }){
                     <a href="{{ url('/destination/titan') }}" class="Destination--nav__link">Titan</a> */}
                 </nav>
 
+                
+                
                 <h2 id="Destination_text_title" className="Destination--text__title">{ i18n.language === 'fr' ? destination.fr_name : destination.en_name }</h2>
                 <p id="Destination_text_subtitle" className="Destination--text__p">{ i18n.language === 'fr' ? destination.fr_description : destination.en_description }</p>
                 <div className="Destination--text--bar"></div>
@@ -48,8 +51,13 @@ function DestinationContentNormal({ destination, menuData, changeDestination }){
 }
 
 function DestinationContentError(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id');
     return (
-        <h2 class="Destination--error">Error 500 : Internal server error, please try again later!</h2>
+      <>
+        <h2 className="Destination--error">Error 500 : Internal server error, please try again later!</h2>
+      </>
     )
 }
 
@@ -70,16 +78,22 @@ export default function Destination() {
           })
           .then(data => {
             setMenuData(data);
-            changeDestination(data[0]['id']);
+            changeDestination();
         })
           .catch(error => {
             console.error("Erreur lors de la récupération des données:", error)
           });
       }, []);
 
-    function changeDestination(destinationId) {
-        fetch(`http://localhost:8000/api/planet/${destinationId}`)
+    function changeDestination() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id');
+        fetch(`http://localhost:8000/api/planet/${id}`)
           .then(response => {
+            if (response.status === 404) {
+              throw new Error('Erreur 404');
+            }
             if (!response.ok) {
               throw new Error('Erreur réseau');
             }
@@ -89,11 +103,27 @@ export default function Destination() {
             setDestination(data);
           })
           .catch(error => {
+            if(error.message === 'Erreur 404'){
+                setDestination("404")
+            }
             console.error("Erreur lors de la récupération des données:", error)
           });
     }
 
-    return (
+    if(destination === "404"){
+        return (
+          <>
+            <h1 className="Destination--title"><span>01</span>{t('destination.title')}</h1>
+
+            <div id="Destination_content">
+                
+              <h2 className="Destination--error">Error 404 : Planet not found!</h2>
+                
+            </div>
+        </>
+        )
+    } else {
+      return (
         <>
             <h1 className="Destination--title"><span>01</span>{t('destination.title')}</h1>
 
@@ -103,5 +133,8 @@ export default function Destination() {
                 
             </div>
         </>
-    )
+      )
+    }
+
+    
 }

@@ -15,7 +15,7 @@ class TechController extends Controller
      */
     public function indexForMenu()
     {
-        $planets = Tech::select('id')->get();
+        $planets = Tech::select('id', 'fr_name', 'en_name')->get();
         return response()->json($planets);
     }
 

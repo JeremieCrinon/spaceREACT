@@ -26,7 +26,7 @@ function CrewContentNormal({ crew, menuData, changeCrew }){
             <nav className="Crew--text--nav__mobile Crew--text--nav">
                 <ul id="crew_menu1">
                     {menuData.map((planet) => (
-                        <li><a href="#" onClick={() => changeCrew(planet.id)} className={`Crew--text--nav--link__mobile Crew--text--nav--link ${crew.id === planet.id ? 'Crew--text--nav--link--current__mobile Crew--text--nav--link Crew--text--nav--link--current' : ''}`}></a></li>
+                        <li key={planet.id}><a href={`?id=${planet.id}&name=${planet.name}`} onClick={() => changeCrew()} className={`Crew--text--nav--link__mobile Crew--text--nav--link ${crew.id === planet.id ? 'Crew--text--nav--link--current__mobile Crew--text--nav--link Crew--text--nav--link--current' : ''}`} key={planet.id}></a></li>
                     ))}
                     {/* <li><a class="Crew--text--nav--link__mobile Crew--text--nav--link" href="{{ url('/crew/commander') }}"></a></li>
                     <li><a class="Crew--text--nav--link__mobile Crew--text--nav--link--current__mobile Crew--text--nav--link Crew--text--nav--link--current" href="{{ url('/crew/mission_specialist') }}"></a></li>
@@ -45,7 +45,7 @@ function CrewContentNormal({ crew, menuData, changeCrew }){
                     <nav className="Crew--text--nav">
                         <ul id="crew_menu2">
                             {menuData.map((planet) => (
-                                <li><a href="#" onClick={() => changeCrew(planet.id)} className={`Crew--text--nav--link ${crew.id === planet.id ? 'Crew--text--nav--link Crew--text--nav--link--current' : ''}`}></a></li>
+                                <li key={planet.id}><a href={`?id=${planet.id}&name=${planet.name}`} onClick={() => changeCrew()} className={`Crew--text--nav--link ${crew.id === planet.id ? 'Crew--text--nav--link Crew--text--nav--link--current' : ''}`} key={planet.id}></a></li>
                             ))}
                             {/* <li><a class="Crew--text--nav--link Crew--text--nav--link--current" href="{{ url('/crew/commander') }}"></a></li>
                             <li><a class="Crew--text--nav--link" href="{{ url('/crew/mission_specialist') }}"></a></li>
@@ -89,15 +89,18 @@ export default function Crew() {
           })
           .then(data => {
             setMenuData(data);
-            changeCrew(data[0]['id']);
+            changeCrew();
         })
           .catch(error => {
             console.error("Erreur lors de la récupération des données:", error)
           });
       }, []);
 
-    function changeCrew(crewId) {
-        fetch(`http://localhost:8000/api/crew/${crewId}`)
+    function changeCrew() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id');
+        fetch(`http://localhost:8000/api/crew/${id}`)
           .then(response => {
             if (!response.ok) {
               throw new Error('Erreur réseau');

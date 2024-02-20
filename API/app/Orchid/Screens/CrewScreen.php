@@ -123,22 +123,27 @@ class CrewScreen extends Screen
             Layout::modal('crewEditModal', Layout::rows([
                 Input::make('crew.fr_role')
                     ->title('Role in french')
+                    ->required()
                     ->value('crew.fr_role'),
 
                 Input::make('crew.en_role')
                     ->title('Role in english')
+                    ->required()
                     ->value('crew.en_role'),
 
                 Input::make('crew.fr_description')
                     ->title('Description in french')
+                    ->required()
                     ->value('crew.fr_description'),
 
                 Input::make('crew.en_description')
                     ->title('Description in english')
+                    ->required()
                     ->value('crew.en_description'),
                 
                 Input::make('crew.name')
                     ->title('Name')
+                    ->required()
                     ->value('crew.name'),
 
                 Input::make('crew.image')
@@ -146,6 +151,7 @@ class CrewScreen extends Screen
                     ->type('file') // Specify the input type as 'file' for uploading images
                     ->accept('image/*') // Accept only image files
                     ->placeholder('Upload crew image')
+                    ->required()
                     ->help('Upload a new image of the crew if you want to change it.'),
 
                 
@@ -160,26 +166,31 @@ class CrewScreen extends Screen
                 Input::make('crew.fr_role')
                     ->title('Role in french')
                     ->placeholder('Enter planet french role')
+                    ->required()
                     ->help('The french role of the crew to be created.'),
 
                 Input::make('crew.en_role')
                     ->title('Role in english')
                     ->placeholder('Enter crew english role')
+                    ->required()
                     ->help('The english role of the crew to be created.'),
 
                 Input::make('crew.fr_description')
                     ->title('Description in french')
                     ->placeholder('Enter crew french description')
+                    ->required()
                     ->help('The french description of the crew to be created.'),
 
                 Input::make('crew.en_description')
                     ->title('Description in english')
                     ->placeholder('Enter crew english description')
+                    ->required()
                     ->help('The english description of the crew to be created.'),
                 
                 Input::make('crew.name')
                     ->title('Name')
                     ->placeholder('Enter crew name')
+                    ->required()
                     ->help('The name of the crew to be created.'),
 
                 Input::make('crew.image')
@@ -187,6 +198,7 @@ class CrewScreen extends Screen
                     ->type('file') // Specify the input type as 'file' for uploading images
                     ->accept('image/*') // Accept only image files
                     ->placeholder('Upload crew image')
+                    ->required()
                     ->help('Upload an image of the crew.'),
 
                 

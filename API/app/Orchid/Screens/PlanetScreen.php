@@ -128,26 +128,32 @@ class PlanetScreen extends Screen
             Layout::modal('planetEditModal', Layout::rows([
                 Input::make('planet.fr_name')
                     ->title('Name in french')
+                    ->required()
                     ->value('planet.fr_name'),
 
                 Input::make('planet.en_name')
                     ->title('Name in english')
+                    ->required()
                     ->value('planet.en_name'),
 
                 Input::make('planet.fr_description')
                     ->title('Description in french')
+                    ->required()
                     ->value('planet.fr_description'),
 
                 Input::make('planet.en_description')
                     ->title('Description in english')
+                    ->required()
                     ->value('planet.en_description'),
                 
                 Input::make('planet.distance')
                     ->title('Distance')
+                    ->required()
                     ->value('planet.distance'),
 
                 Input::make('planet.time')
                     ->title('Time')
+                    ->required()
                     ->value('planet.time'),
 
                 Input::make('planet.image')
@@ -155,6 +161,7 @@ class PlanetScreen extends Screen
                     ->type('file') // Specify the input type as 'file' for uploading images
                     ->accept('image/*') // Accept only image files
                     ->placeholder('Upload planet image')
+                    ->required()
                     ->help('Upload a new image of the planet if you want to change it.'),
 
                 
@@ -166,41 +173,48 @@ class PlanetScreen extends Screen
             
 
             Layout::modal('planetModal', Layout::rows([
-                Input::make('planet.fr_name')
+                Input::make('planet.create.fr_name')
                     ->title('Name in french')
                     ->placeholder('Enter planet french name')
+                    ->required()
                     ->help('The french name of the planet to be created.'),
 
-                Input::make('planet.en_name')
+                Input::make('planet.create.en_name')
                     ->title('Name in english')
                     ->placeholder('Enter planet english name')
+                    ->required()
                     ->help('The english name of the planet to be created.'),
 
-                Input::make('planet.fr_description')
+                Input::make('planet.create.fr_description')
                     ->title('Description in french')
                     ->placeholder('Enter planet french description')
+                    ->required()
                     ->help('The french description of the planet to be created.'),
 
-                Input::make('planet.en_description')
+                Input::make('planet.create.en_description')
                     ->title('Description in english')
                     ->placeholder('Enter planet english description')
+                    ->required()
                     ->help('The english description of the planet to be created.'),
                 
-                Input::make('planet.distance')
+                Input::make('planet.create.distance')
                     ->title('Distance')
                     ->placeholder('Enter planet distance')
+                    ->required()
                     ->help('The distance of the planet to be created.'),
 
-                Input::make('planet.time')
+                Input::make('planet.create.time')
                     ->title('Time')
                     ->placeholder('Enter planet time')
+                    ->required()
                     ->help('The time of the planet to be created.'),
 
-                Input::make('planet.image')
+                Input::make('planet.create.image')
                     ->title('Image')
                     ->type('file') // Specify the input type as 'file' for uploading images
                     ->accept('image/*') // Accept only image files
                     ->placeholder('Upload planet image')
+                    ->required()
                     ->help('Upload an image of the planet.'),
 
                 
@@ -219,29 +233,29 @@ class PlanetScreen extends Screen
     {
         // Validate form data, save task to database, etc.
         $request->validate([
-            'planet.fr_name' => 'required|max:20',
-            'planet.en_name' => 'required|max:20',
-            'planet.fr_description' => 'required|max:500',
-            'planet.en_description' => 'required|max:500',
-            'planet.distance' => 'required|max:20',
-            'planet.time' => 'required|max:20',
-            'planet.image' => 'required|image',
+            'planet.create.fr_name' => 'required|max:20',
+            'planet.create.en_name' => 'required|max:20',
+            'planet.create.fr_description' => 'required|max:500',
+            'planet.create.en_description' => 'required|max:500',
+            'planet.create.distance' => 'required|max:20',
+            'planet.create.time' => 'required|max:20',
+            'planet.create.image' => 'required|image',
         ]);
 
         $planet = new planet();
 
         if ($request->hasFile('planet.image')) {
-            $planet->image = $request->file('planet.image')->store('img', 'public');
+            $planet->image = $request->file('planet.create.image')->store('img', 'public');
         } else {
             // return response()->json(['message' => 'Image not send'], 400);
         }
 
-        $planet->fr_name = $request->input('planet.fr_name');
-        $planet->en_name = $request->input('planet.en_name');
-        $planet->fr_description = $request->input('planet.fr_description');
-        $planet->en_description = $request->input('planet.en_description');
-        $planet->distance = $request->input('planet.distance');
-        $planet->time = $request->input('planet.time');
+        $planet->fr_name = $request->input('planet.create.fr_name');
+        $planet->en_name = $request->input('planet.create.en_name');
+        $planet->fr_description = $request->input('planet.create.fr_description');
+        $planet->en_description = $request->input('planet.create.en_description');
+        $planet->distance = $request->input('planet.create.distance');
+        $planet->time = $request->input('planet.create.time');
         // $planet->image = $request->input('planet.image');
 
         $planet->save();

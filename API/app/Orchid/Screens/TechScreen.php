@@ -115,68 +115,14 @@ class TechScreen extends Screen
                 
             ]),
 
-            Layout::modal('techEditModal', Layout::rows([
-                Input::make('tech.fr_name')
-                    ->title('Name in french')
-                    ->value('tech.fr_name'),
-
-                Input::make('tech.en_name')
-                    ->title('Name in english')
-                    ->value('tech.en_name'),
-
-                Input::make('tech.fr_description')
-                    ->title('Description in french')
-                    ->value('tech.fr_description'),
-
-                Input::make('tech.en_description')
-                    ->title('Description in english')
-                    ->value('tech.en_description'),
-                
-                Input::make('tech.image')
-                    ->title('Image')
-                    ->type('file') // Specify the input type as 'file' for uploading images
-                    ->accept('image/*') // Accept only image files
-                    ->placeholder('Upload tech image')
-                    ->help('Upload a new image of the tech if you want to change it.'),
-
-                
-            ]))
+            Layout::modal('techEditModal', $this->techFields(true))
                 ->async('asyncGetPlanet')
                 ->title('Edit Tech')
                 ->applyButton('Edit the Tech'),
 
             
 
-            Layout::modal('techModal', Layout::rows([
-                Input::make('tech.fr_name')
-                    ->title('Name in french')
-                    ->placeholder('Enter tech french name')
-                    ->help('The french name of the tech to be created.'),
-
-                Input::make('tech.en_name')
-                    ->title('Name in english')
-                    ->placeholder('Enter tech english name')
-                    ->help('The english name of the tech to be created.'),
-
-                Input::make('tech.fr_description')
-                    ->title('Description in french')
-                    ->placeholder('Enter tech french description')
-                    ->help('The french description of the tech to be created.'),
-
-                Input::make('tech.en_description')
-                    ->title('Description in english')
-                    ->placeholder('Enter tech english description')
-                    ->help('The english description of the tech to be created.'),
-                
-                Input::make('tech.image')
-                    ->title('Image')
-                    ->type('file') // Specify the input type as 'file' for uploading images
-                    ->accept('image/*') // Accept only image files
-                    ->placeholder('Upload tech image')
-                    ->help('Upload an image of the tech.'),
-
-                
-            ]))
+            Layout::modal('techModal', $this->techFields())
                 ->title('Create Tech')
                 ->applyButton('Add Tech'),
         ];
@@ -237,10 +183,10 @@ class TechScreen extends Screen
      *
      * @return void
      */
-    public function delete(Tech $planet)
+    public function delete(Tech $tech)
     {
         // Construit le chemin complet de l'image
-        $imagePath = public_path("../storage/app/public/" . $planet->image);
+        $imagePath = public_path("../storage/app/public/" . $tech->image);
 
         // Supprime l'image si elle existe
         if (file_exists($imagePath)) {
@@ -249,7 +195,7 @@ class TechScreen extends Screen
         } else {
             $result = "L'image n'existe pas, elle se trouve normalement à l'emplacement " . $imagePath;
         }
-        $planet->delete();
+        $tech->delete();
     }
 
     public function asyncGetPlanet(int $techId): array
@@ -309,6 +255,40 @@ class TechScreen extends Screen
 
         // Sauvegarder les modifications
         $planet->save();
+    }
+
+
+    private function techFields($isEditMode = false) {
+        $fields = [
+            Input::make('tech.fr_name')
+                ->title('Name in french')
+                ->required()
+                ->placeholder($isEditMode ? 'tech.fr_name' : 'Enter tech french name'),
+    
+            Input::make('tech.en_name')
+                ->title('Name in english')
+                ->required()
+                ->placeholder($isEditMode ? 'tech.en_name' : 'Enter tech english name'),
+    
+            Input::make('tech.fr_description')
+                ->title('Description in french')
+                ->required()
+                ->placeholder($isEditMode ? 'tech.fr_description' : 'Enter tech french description'),
+    
+            Input::make('tech.en_description')
+                ->title('Description in english')
+                ->required()
+                ->placeholder($isEditMode ? 'tech.en_description' : 'Enter tech english description'),
+    
+            Input::make('tech.image')
+                ->title('Image')
+                ->type('file')
+                ->accept('image/*')
+                ->required($isEditMode ? false : true)
+                ->placeholder('Upload tech image')
+        ];
+    
+        return Layout::rows($fields);
     }
 
 }
